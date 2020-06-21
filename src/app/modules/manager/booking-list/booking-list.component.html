@@ -1,0 +1,66 @@
+<div class="title-div">
+  <h1>Danh sách đặt lịch thực hành</h1>
+</div>
+
+<div class="table-div">
+
+  <div *ngIf="dataSource.data.length <= 0">
+    <alert type="warning">Hiện không có lịch thực hành nào</alert>
+  </div>
+
+  <div *ngIf="dataSource.data.length > 0">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="lab">
+        <th mat-header-cell *matHeaderCellDef>Tên phòng</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.lab.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="bookingDate">
+        <th mat-header-cell *matHeaderCellDef>Ngày đặt phòng</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.bookingDate | date: 'dd/MM/yyyy' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="startAt">
+        <th mat-header-cell *matHeaderCellDef>Tiết bắt đầu</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.startAt }}</td>
+      </ng-container>
+      <ng-container matColumnDef="endAt">
+        <th mat-header-cell *matHeaderCellDef>Tiết kết thúc</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.endAt }}</td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Trạng thái</th>
+        <td mat-cell *matCellDef="let booking">{{ booking.status }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Thao tác</th>
+        <td mat-cell *matCellDef="let booking">
+          <button type="button" (click)="onDetail(booking.id)">
+            <mat-icon>subject</mat-icon>
+          </button>
+          <button type="button" (click)="onNotice(booking.id)">
+            <mat-icon>announcement</mat-icon>
+          </button>
+          <button type="button" (click)="onDelete(booking.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let lab; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="paging">
+      <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+        nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
+    </div>
+
+  </div>
+
+</div>

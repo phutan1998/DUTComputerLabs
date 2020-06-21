@@ -1,0 +1,30 @@
+mat-toolbar {
+    background-color: #009688;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 1200;
+    color: white;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    display: inline-block;
+    margin: auto 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 3;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+    margin: 0 5px;
+}

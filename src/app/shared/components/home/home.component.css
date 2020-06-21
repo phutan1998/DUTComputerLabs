@@ -1,0 +1,22 @@
+div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+mat-card {
+    width: 500px;
+    height: 300px;
+}
+
+.form-field {
+    display: block;
+    max-width: 75%;
+    margin: 20px auto;
+}
+
+button {
+    background-color: #009688;
+    color: white;
+}

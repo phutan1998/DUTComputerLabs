@@ -1,0 +1,69 @@
+<div class="title-div">
+  <h1>Danh sách phòng máy</h1>
+</div>
+
+<button mat-raised-button class="new-button" [routerLink]="['new']" routerLinkActive="active" >
+  <mat-icon>post_add</mat-icon> Thêm phòng máy mới
+</button>
+
+<mat-divider></mat-divider>
+
+<div class="table-div">
+
+  <div *ngIf="dataSource.data.length <= 0">
+    <alert type="warning">Bạn hiện không quản lý phòng máy nào</alert>
+  </div>
+
+  <div *ngIf="dataSource.data.length > 0">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Tên phòng</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="condition">
+        <th mat-header-cell *matHeaderCellDef>Tình trạng</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.condition }}</td>
+      </ng-container>
+      <ng-container matColumnDef="computers">
+        <th mat-header-cell *matHeaderCellDef>Tổng số máy</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.computers }}</td>
+      </ng-container>
+      <ng-container matColumnDef="damagedComputers">
+        <th mat-header-cell *matHeaderCellDef>Số máy hỏng</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.damagedComputers }}</td>
+      </ng-container>
+      <ng-container matColumnDef="aircons">
+        <th mat-header-cell *matHeaderCellDef>Số máy điều hòa</th>
+        <td mat-cell *matCellDef="let lab">{{ lab.aircons }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Thao tác</th>
+        <td mat-cell *matCellDef="let lab">
+          <button type="button" [routerLink]="[lab.id]" routerLinkActive="active" >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button type="button" (click)="onDelete(lab.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let lab; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="paging">
+      <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+        nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
+    </div>
+
+  </div>
+
+</div>

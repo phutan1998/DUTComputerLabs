@@ -1,0 +1,47 @@
+.title-div {
+    height: 35px;
+    font-size: 20px;
+    vertical-align: middle;
+    border-bottom: solid lightgray;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 5px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: grey;
+}
+
+.table-div {
+    max-width: 95%;
+    margin: 20px auto;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.mat-header-cell {
+    background-color: #009688;
+    color: white;
+}
+
+.paging {
+    float: right;
+    position: absolute;
+    right: 5%;
+    margin: 1.5rem;
+}
+
+.paging .new-button {
+    background-color: #009688;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+    margin: 10px;
+}

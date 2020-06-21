@@ -1,0 +1,19 @@
+<div>
+  <h1 mat-dialog-title>Thông tin lịch đặt phòng</h1>
+
+  <div mat-dialog-content>
+    <p>ID: {{ booking.id }}</p>
+    <p>Tên phòng: {{ booking.lab.name }}</p>
+    <p>Người đặt phòng: {{ booking.bookerName }} </p>
+    <p>Ngày đặt phòng: {{ booking.bookingDate | date: 'dd/MM/yyyy' }} </p>
+    <p>Tiết bắt đầu: {{ booking.startAt }} </p>
+    <p>Tiết kết thúc: {{ booking.endAt }} </p>
+    <p>Trạng thái: {{ booking.status }} </p>
+    <p>Mô tả: {{ booking.description }}  </p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button type="button" mat-dialog-close>Close</button>
+  </div>
+
+</div>

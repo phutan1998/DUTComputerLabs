@@ -1,0 +1,24 @@
+<mat-toolbar>
+
+    <ng-content></ng-content>
+
+    <span class="title">Quản lý phòng máy và lịch thực hành</span>
+  
+    <span class="spacer"></span>
+  
+    <span *ngIf="loggedIn()">
+      <a [matMenuTriggerFor]="menu">Chào mừng, {{ authService.currentUser?.name | titlecase }}</a>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toProfile()" *ngIf="authService.currentUser?.role !== 'ADMIN'">
+        <mat-icon>edit</mat-icon> Thông tin cá nhân
+      </button>
+      <button mat-menu-item (click)="toEditPassword()">
+        <mat-icon>vpn_key</mat-icon> Đổi mật khẩu
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon> Đăng xuất
+      </button>
+    </mat-menu>
+    </span>
+
+</mat-toolbar>

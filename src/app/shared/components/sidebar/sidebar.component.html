@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #drawer class="sidenav" 
+      fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="'side'"
+      [opened]="false">
+
+    <mat-toolbar>Menu</mat-toolbar>
+
+    <mat-nav-list *ngIf="authService.currentUser?.role === 'MANAGER'">
+      <a mat-list-item [routerLink]="['labs']" routerLinkActive="active" >Quản lý phòng máy</a>
+      <a mat-list-item [routerLink]="['bookings']" routerLinkActive="active" >Quản lý lịch đặt phòng</a>
+      <a mat-list-item [routerLink]="['/notices']" routerLinkActive="active">Thông báo đã gửi</a> 
+      <a mat-list-item href="#">Thống kê</a>
+    </mat-nav-list>
+
+    <mat-nav-list *ngIf="authService.currentUser?.role === 'ADMIN'">
+      <a mat-list-item [routerLink]="['managers']" routerLinkActive="active" >Quản lý Quản lý phòng máy</a>
+      <a mat-list-item [routerLink]="['lecturers']" routerLinkActive="active" >Quản lý Giảng viên</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <app-header>
+
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+    </app-header>
+
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

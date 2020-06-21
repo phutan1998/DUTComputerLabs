@@ -1,0 +1,18 @@
+<div class="form-popup">
+
+  <h1>Thêm thông báo</h1>
+
+  <form [formGroup]="noticeForm" (ngSubmit)="onSave()">
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Nội Dung</mat-label>
+      <input matInput formControlName="content">
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-raised-button type="submit" class="save">Save</button>
+      <button mat-raised-button type="button" class="clear" (click)="onClear()">Clear</button>
+    </div>
+
+  </form>
+</div>
