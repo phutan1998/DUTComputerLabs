@@ -1,0 +1,69 @@
+.title-div {
+    height: 35px;
+    font-size: 20px;
+    vertical-align: middle;
+    border-bottom: solid lightgray;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 5px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: grey;
+}
+
+.line {
+    max-width: 95%;
+    margin: auto 80px;
+}
+
+form {
+    display: inline-block;
+}
+
+.form-field {
+    width: 450px;
+    margin: 10px 10px 0 120px;
+    height: 15px;
+}
+
+input {
+    font-size: 18px;
+}
+
+.search-button {
+    background-color: #009688;
+}
+
+.new-button {
+    display: inline;
+    background-color: #009688;
+}
+
+.table-div {
+    max-width: 95%;
+    margin: 20px auto;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.mat-header-cell {
+    background-color: #009688;
+    color: white;
+}
+
+.paging {
+    float: right;
+    position: absolute;
+    right: 5%;
+    margin: 1.5rem;
+}
+
+button {
+    cursor: pointer;
+    margin: 10px;
+}

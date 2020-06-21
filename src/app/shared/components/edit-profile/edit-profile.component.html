@@ -1,0 +1,70 @@
+<div>
+
+  <h1>Thông tin cá nhân</h1>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Họ và tên</mat-label>
+      <input matInput formControlName="name" required>
+      <mat-error>Vui lòng nhập họ và tên</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Ngày sinh</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Chọn ngày" formControlName="birthday" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Vui lòng chọn ngày sinh</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Giới tính</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option *ngFor="let gender of ['Nam', 'Nữ']" [value]="gender">
+          {{ gender }}
+        </mat-option>
+      </mat-select>
+      <mat-error>Vui lòng chọn giới tính</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Khoa</mat-label>
+      <mat-select formControlName="faculty" required>
+        <mat-option *ngFor="let faculty of faculties" [value]="faculty.name">
+          {{ faculty.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error>Vui lòng chọn khoa</mat-error>
+    </mat-form-field>    
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Số điện thoại liên hệ</mat-label>
+      <input matInput formControlName="phoneNumber" required>
+      <mat-error>Vui lòng nhập số điện thoại</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error>Vui lòng nhập đúng định dạng email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Địa chỉ liên hệ</mat-label>
+      <input matInput formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Tên tài khoản</mat-label>
+      <input matInput formControlName="username" required>
+    </mat-form-field>
+
+  <div class="buttons">
+    <button mat-raised-button type="submit" class="save" (click)="onSave()" [disabled]="!profileForm.valid">Lưu</button>
+    <button mat-raised-button type="button" class="clear" (click)="onClear()">Làm mới</button>
+  </div>
+
+</form>
+
+</div>
